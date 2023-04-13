@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>{{pageTitle}}</h1>
+        </div>
+        <div class="col-12" fxLayout fxLayoutAlign="center center" style="background-color: aqua;">
+            <form #greetingForm="ngForm" (ngSubmit)="greetByName()">
+                <mat-form-field appearance="outline">
+                    <input matInput type="text" name="name" placeholder="Enter name" ngModel />
+                    <mat-icon matSuffix>emoji_people</mat-icon>
+                </mat-form-field>
+
+                <div fxLayout>
+                    <div *ngFor="let lang of languages" fxLayoutAlign="center">
+                        <label for="language">{{lang | titlecase}}</label>
+                        <input type="radio" name="language" value={{lang}} ngModel />
+                    </div>
+                </div>
+
+                <button mat-raised-button (click)="openDialog()" color="primary">Greet</button>
+            </form>
+        </div>
+    </div>
+    <!-- Greeing modal -->
+    <app-greeting-dialog [greetMsg]="greetMsg" ></app-greeting-dialog>
+</div>

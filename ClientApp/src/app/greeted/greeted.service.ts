@@ -8,7 +8,7 @@ import { Observable, catchError, tap, throwError } from 'rxjs';
 })
 export class GreetedService {
 
-  private greetedNamesUrl: string = "https://localhost:7088/greeted";
+  private greetedNamesUrl: string = "";
 
   constructor(private http: HttpClient) { }
 
