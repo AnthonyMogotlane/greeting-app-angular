@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { GreetedComponent } from './greeted/greeted.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GreetedComponent } from './greeted/greeted.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
       { path: "greeted", component: GreetedComponent },
