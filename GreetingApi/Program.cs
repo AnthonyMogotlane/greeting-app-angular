@@ -2,7 +2,20 @@ using GreetingApi.Data;
 using GreetingApi.Model;
 using Microsoft.EntityFrameworkCore;
 
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy  =>
+                      {
+                          policy.WithOrigins("http://localhost:4200/greeted",
+                                              "http://localhost:4200", "http://localhost:4200/greeted/13");
+                      });
+});
+
 
 /* 
     below two lines adds the database context to the dependency injection (DI) container 
@@ -66,6 +79,9 @@ app.MapDelete("/greeted/{id}", async (PersonDb db, int id) =>
 
     return Results.NotFound();
 });
+
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
 
