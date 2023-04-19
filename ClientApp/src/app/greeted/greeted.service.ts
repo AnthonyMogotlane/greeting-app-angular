@@ -8,12 +8,20 @@ import { Observable, catchError, tap, throwError } from 'rxjs';
 })
 export class GreetedService {
 
-  private greetedNamesUrl: string = "";
+  // Api Link
+  private greetedNamesUrl: string = "https://localhost:7088/greeted";
 
   constructor(private http: HttpClient) { }
 
   getGreetedNames(): Observable<IPerson[]> {
     return this.http.get<IPerson[]>(this.greetedNamesUrl).pipe(
+      tap(data => console.log("All", JSON.stringify(data))),
+      catchError(this.handleError)
+    )
+  }
+
+  deleteName(id: number): Observable<IPerson[]> {
+    return this.http.delete<IPerson[]>(`${this.greetedNamesUrl}/${id}`).pipe(
       tap(data => console.log("All", JSON.stringify(data))),
       catchError(this.handleError)
     )
