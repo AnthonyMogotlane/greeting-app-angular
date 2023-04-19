@@ -13,7 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GreetingDialogComponent } from './home/greeting-dialog/greeting-dialog.component';
 
@@ -41,6 +42,7 @@ import { GreetingDialogComponent } from './home/greeting-dialog/greeting-dialog.
     MatToolbarModule,
     MatIconModule,
     MatDialogModule,
+    MatTableModule,
     FlexLayoutModule,
   ],
   providers: [],
